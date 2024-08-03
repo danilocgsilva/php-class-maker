@@ -1,0 +1,23 @@
+{
+    "name": "danilocgsilva/php_class_maker",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Danilocgsilva\\PhpClassMaker\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Danilo Silva",
+            "email": "contact@danilocgsilva.me"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11.3"
+    }
+}
