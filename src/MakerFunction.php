@@ -30,7 +30,7 @@ class MakerFunction
         $functionString .= " function " . $this->name . "()" . PHP_EOL;
         $functionString .= "{" . PHP_EOL;
         if ($this->content !== "") {
-            $functionString .= "    " . $this->content . PHP_EOL;
+            $functionString .= $this->addFourSpacesLeftPad($this->content) . PHP_EOL;
         }
         $functionString .= "}" . PHP_EOL;
 
@@ -75,5 +75,12 @@ class MakerFunction
             $missingData[] = "name";
         }
         return $missingData;
+    }
+
+    private function addFourSpacesLeftPad(string $text): string
+    {
+        $contentLines = explode(PHP_EOL, $text);
+        $contentLinesPadded = array_map(fn ($textLine) => "    " . $textLine, $contentLines);
+        return implode(PHP_EOL, $contentLinesPadded);
     }
 }

@@ -60,4 +60,29 @@ EOF;
             $this->makerFunction->getFunctionString()
         );
     }
+
+    public function testGetMoreThanOneLine()
+    {
+        $this->makerFunction->setName("myFunctionNameAgain");
+        $this->makerFunction->setVisibility(Visibility::public );
+
+        $functionContent = '$myNameis = "Danilo";' . PHP_EOL;
+        $functionContent .= 'return $myName;';
+
+        $this->makerFunction->setContent($functionContent);
+
+        $expectedContentString = <<<EOF
+public function myFunctionNameAgain()
+{
+    \$myNameis = "Danilo";
+    return \$myName;
+}
+
+EOF;
+
+        $this->assertSame(
+            $expectedContentString,
+            $this->makerFunction->getFunctionString()
+        );
+    }
 }
